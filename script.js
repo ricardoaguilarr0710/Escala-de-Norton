@@ -11,11 +11,13 @@ const riskLevel = document.getElementById('riskLevel');
 const resetBtn = document.getElementById('resetBtn');
 const diagnosticList = document.getElementById('diagnosticList');
 const careList = document.getElementById('careList');
+const resultText = document.getElementById('resultText');
 
 const carePlans = {
   low: {
     label: 'Bajo',
     className: 'low',
+    summary: 'El paciente presenta riesgo bajo de úlcera por presión; mantener vigilancia continua y medidas preventivas habituales.',
     diagnostics: [
       'Riesgo de integridad cutánea comprometida',
       'Riesgo de movilidad física deteriorada',
@@ -31,6 +33,7 @@ const carePlans = {
   moderate: {
     label: 'Moderado',
     className: 'moderate',
+    summary: 'El paciente presenta riesgo moderado; requiere vigilancia activa y medidas preventivas más estrictas para evitar lesiones por presión.',
     diagnostics: [
       'Riesgo de integridad cutánea alterada',
       'Movilidad física deteriorada relacionada con limitación de la actividad',
@@ -46,6 +49,7 @@ const carePlans = {
   high: {
     label: 'Alto',
     className: 'high',
+    summary: 'El paciente tiene riesgo alto de desarrollar úlcera por presión; es necesario reforzar el cuidado de la piel y la prevención activa.',
     diagnostics: [
       'Integridad de la piel alterada',
       'Deterioro de la movilidad',
@@ -62,6 +66,7 @@ const carePlans = {
   critical: {
     label: 'Muy alto',
     className: 'critical',
+    summary: 'El paciente presenta riesgo muy alto de lesión por presión; requiere atención inmediata, prevención intensiva y seguimiento cercano.',
     diagnostics: [
       'Integridad de la piel alterada con riesgo elevado de lesión',
       'Movilidad física deteriorada severa',
@@ -69,7 +74,7 @@ const carePlans = {
       'Riesgo de infección y complicaciones asociadas a inmovilidad'
     ],
     cares: [
-      'Activar medidas intensivas de prevención: reposicionamiento frecuente, controles de piel y evaluación continúa.',
+      'Activar medidas intensivas de prevención: reposicionamiento frecuente, controles de piel y evaluación continua.',
       'Coordinar con médico y equipo de enfermería para soporte de movilidad y prevención de úlceras.',
       'Asegurar higiene íntima, cuidado de incontinencia y protección de la piel.',
       'Reforzar educación a familia y personal de cuidado para evitar fricción, presión y humedad.'
@@ -105,6 +110,8 @@ function renderCarePlan(plan) {
   careList.innerHTML = plan.cares
     .map((item) => `<li>${item}</li>`)
     .join('');
+
+  resultText.textContent = plan.summary;
 }
 
 function updateAssessment() {
