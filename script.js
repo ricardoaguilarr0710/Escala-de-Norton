@@ -9,6 +9,7 @@ const formFields = [
 const scoreValue = document.getElementById('scoreValue');
 const riskLevel = document.getElementById('riskLevel');
 const resetBtn = document.getElementById('resetBtn');
+const printBtn = document.getElementById('printBtn');
 
 function getTotalScore() {
   return formFields.reduce((sum, field) => {
@@ -54,6 +55,10 @@ resetBtn.addEventListener('click', () => {
     if (firstOption) firstOption.checked = true;
   });
   updateAssessment();
+});
+
+printBtn.addEventListener('click', () => {
+  window.print();
 });
 
 updateAssessment();
