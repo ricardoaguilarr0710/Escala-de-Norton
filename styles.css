@@ -390,47 +390,6 @@ h1 {
   color: #fff3f3;
 }
 
-.print-summary {
-  display: block;
-  margin-bottom: 20px;
-  background: rgba(17, 30, 41, 0.52);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 18px;
-}
-
-.print-summary-header h3 {
-  margin: 0 0 12px;
-  color: var(--primary-3);
-  font-size: 1.1rem;
-}
-
-.print-summary-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 18px;
-}
-
-.print-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.print-row span {
-  color: var(--muted);
-}
-
-.print-result-row {
-  grid-column: 1 / -1;
-  background: rgba(134, 215, 255, 0.08);
-  border-color: rgba(134, 215, 255, 0.14);
-}
-
 .interpretation-panel {
   margin-top: 18px;
   padding: 18px 20px;
@@ -568,8 +527,7 @@ h1 {
   }
 
   .patient-grid,
-  .interpretation-grid,
-  .print-summary-grid {
+  .interpretation-grid {
     grid-template-columns: 1fr;
   }
 
@@ -627,8 +585,7 @@ h1 {
   .summary-box,
   .interpretation-panel,
   .norton-table,
-  .table-wrap,
-  .print-summary {
+  .table-wrap {
     break-inside: avoid;
   }
 
@@ -647,12 +604,8 @@ h1 {
   .panel-header h2,
   .metric-name,
   .risk-pill,
-  .suffix,
   .reference-list,
   .care-header h3,
-  .print-summary-header h3,
-  .print-row span,
-  .print-row strong,
   .level-tag,
   .interpretation-item p,
   .norton-table th,
@@ -662,25 +615,8 @@ h1 {
   .footer-note,
   .field input,
   .patient-card input,
-  .table-wrap,
-  .print-summary {
+  .table-wrap {
     color: #0e1720 !important;
-  }
-
-  .print-summary {
-    display: block !important;
-    background: #f6f8fa !important;
-    border-color: #d0d7de !important;
-  }
-
-  .print-row {
-    background: #f8fafc !important;
-    border-color: #d0d7de !important;
-  }
-
-  .print-result-row {
-    background: #eef7ff !important;
-    border-color: #bddcf3 !important;
   }
 
   .norton-table thead th {
