@@ -7,64 +7,139 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="page">
-      <header class="title-block">
-        <div class="title-top">Riesgo de úlcera por presión</div>
-        <h1>Escala de Norton</h1>
+    <div class="app-shell">
+      <div class="topbar">
+        <span class="badge">Enfermería</span>
+      </div>
+
+      <header class="hero">
+        <section class="title-card">
+          <div class="eyebrow">Riesgo de úlcera por presión</div>
+          <h1>Escala de Norton</h1>
+          <p class="subtitle">
+            Herramienta clínica para valoración del riesgo de desarrollar úlceras por presión.
+          </p>
+        </section>
+
+        <aside class="patient-card">
+          <h2 class="card-title">Ficha del paciente</h2>
+          <div class="patient-grid">
+            <div class="field">
+              <label for="patientName">Paciente</label>
+              <input id="patientName" type="text" placeholder="Ej. María López" />
+            </div>
+            <div class="field">
+              <label for="patientAge">Edad</label>
+              <input id="patientAge" type="text" placeholder="Ej. 74" />
+            </div>
+            <div class="field">
+              <label for="ward">Servicio</label>
+              <input id="ward" type="text" placeholder="Ej. Medicina" />
+            </div>
+            <div class="field">
+              <label for="date">Fecha</label>
+              <input id="date" type="date" />
+            </div>
+          </div>
+        </aside>
       </header>
 
-      <section class="table-wrap" aria-label="Escala de Norton">
-        <table class="norton-table">
-          <thead>
-            <tr>
-              <th class="criteria-header">Criterio</th>
-              <th>4 pts</th>
-              <th>3 pts</th>
-              <th>2 pts</th>
-              <th>1 pts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th class="factor">Estado físico general</th>
-              <td>Bueno</td>
-              <td>Débil</td>
-              <td>Malo</td>
-              <td>Muy malo</td>
-            </tr>
-            <tr>
-              <th class="factor">Estado mental</th>
-              <td>Alerta</td>
-              <td>Apático</td>
-              <td>Confuso</td>
-              <td>Estuporoso</td>
-            </tr>
-            <tr>
-              <th class="factor">Actividad</th>
-              <td>Camina sin ayuda</td>
-              <td>Camina con ayuda</td>
-              <td>En silla de ruedas</td>
-              <td>En cama</td>
-            </tr>
-            <tr>
-              <th class="factor">Movilidad</th>
-              <td>Total</td>
-              <td>Limitación ligera</td>
-              <td>Muy limitada</td>
-              <td>Inmóvil</td>
-            </tr>
-            <tr>
-              <th class="factor">Incontinencia</th>
-              <td>Ninguna</td>
-              <td>Ocasional</td>
-              <td>Solo urinaria</td>
-              <td>Urinaria y fecal</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <main class="panel" aria-label="Valoración del paciente">
+        <div class="panel-header">
+          <h2>Valoración clínica</h2>
+          <button id="resetBtn" class="reset-btn" type="button">Reiniciar</button>
+        </div>
 
-      <div class="brand">IMAS</div>
-    </main>
+        <div class="table-wrap">
+          <table class="norton-table">
+            <thead>
+              <tr>
+                <th class="criteria-header">Criterio</th>
+                <th>4 pts</th>
+                <th>3 pts</th>
+                <th>2 pts</th>
+                <th>1 pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="factor">Estado físico general</th>
+                <td><label><input type="radio" name="physical" value="4" checked /><span>Bueno</span></label></td>
+                <td><label><input type="radio" name="physical" value="3" /><span>Débil</span></label></td>
+                <td><label><input type="radio" name="physical" value="2" /><span>Malo</span></label></td>
+                <td><label><input type="radio" name="physical" value="1" /><span>Muy malo</span></label></td>
+              </tr>
+              <tr>
+                <th class="factor">Estado mental</th>
+                <td><label><input type="radio" name="mental" value="4" checked /><span>Alerta</span></label></td>
+                <td><label><input type="radio" name="mental" value="3" /><span>Apático</span></label></td>
+                <td><label><input type="radio" name="mental" value="2" /><span>Confuso</span></label></td>
+                <td><label><input type="radio" name="mental" value="1" /><span>Estuporoso</span></label></td>
+              </tr>
+              <tr>
+                <th class="factor">Actividad</th>
+                <td><label><input type="radio" name="activity" value="4" checked /><span>Camina sin ayuda</span></label></td>
+                <td><label><input type="radio" name="activity" value="3" /><span>Camina con ayuda</span></label></td>
+                <td><label><input type="radio" name="activity" value="2" /><span>En silla de ruedas</span></label></td>
+                <td><label><input type="radio" name="activity" value="1" /><span>En cama</span></label></td>
+              </tr>
+              <tr>
+                <th class="factor">Movilidad</th>
+                <td><label><input type="radio" name="mobility" value="4" checked /><span>Total</span></label></td>
+                <td><label><input type="radio" name="mobility" value="3" /><span>Limitación ligera</span></label></td>
+                <td><label><input type="radio" name="mobility" value="2" /><span>Muy limitada</span></label></td>
+                <td><label><input type="radio" name="mobility" value="1" /><span>Inmóvil</span></label></td>
+              </tr>
+              <tr>
+                <th class="factor">Incontinencia</th>
+                <td><label><input type="radio" name="incontinence" value="4" checked /><span>Ninguna</span></label></td>
+                <td><label><input type="radio" name="incontinence" value="3" /><span>Ocasional</span></label></td>
+                <td><label><input type="radio" name="incontinence" value="2" /><span>Solo urinaria</span></label></td>
+                <td><label><input type="radio" name="incontinence" value="1" /><span>Urinaria y fecal</span></label></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="summary-box" aria-live="polite">
+          <div class="metric">
+            <div>
+              <div class="metric-name">Puntaje total</div>
+              <div id="scoreValue" class="metric-value">20</div>
+            </div>
+          </div>
+
+          <div class="metric">
+            <div>
+              <div class="metric-name">Riesgo</div>
+              <div id="riskLevel" class="risk-pill low">Bajo</div>
+            </div>
+          </div>
+        </div>
+
+        <section class="care-panel" aria-live="polite">
+          <div class="care-header">
+            <h3>Cuidados de enfermería</h3>
+            <span class="care-badge">Enfoque NANDA</span>
+          </div>
+
+          <div class="care-grid">
+            <div class="care-column">
+              <h4>Diagnósticos sugeridos</h4>
+              <ul id="diagnosticList" class="care-list"></ul>
+            </div>
+
+            <div class="care-column">
+              <h4>Intervenciones</h4>
+              <ul id="careList" class="care-list"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="footer-note">IMAS · Sistema de valoración de riesgo por úlceras por presión</div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
