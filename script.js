@@ -79,15 +79,18 @@ function getTotalScore() {
 }
 
 function getRiskInterpretation(score) {
-  if (score >= 18) {
+  const safeScore = Math.max(0, Math.min(20, Number(score) || 0));
+
+  if (safeScore >= 18) {
     return { label: 'Bajo', className: 'low', key: 'low' };
   }
-  if (score >= 14) {
+  if (safeScore >= 14) {
     return { label: 'Moderado', className: 'moderate', key: 'moderate' };
   }
-  if (score >= 10) {
+  if (safeScore >= 10) {
     return { label: 'Alto', className: 'high', key: 'high' };
   }
+
   return { label: 'Muy alto', className: 'critical', key: 'critical' };
 }
 
