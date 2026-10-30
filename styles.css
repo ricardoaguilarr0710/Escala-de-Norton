@@ -20,6 +20,7 @@
   --line: rgba(22, 51, 61, 0.12);
   --shadow: rgba(18, 55, 67, 0.15);
   --soft-shadow: 0 18px 40px rgba(21, 82, 104, 0.12);
+  --info-bg: rgba(91, 167, 191, 0.08);
 }
 
 html {
@@ -89,7 +90,8 @@ input {
 .title-card,
 .patient-card,
 .panel,
-.summary-box {
+.summary-box,
+.care-panel {
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(31, 95, 115, 0.08);
@@ -372,6 +374,67 @@ h1 {
   background: linear-gradient(135deg, #d75c56, #b54d4d);
 }
 
+.care-panel {
+  margin-top: 18px;
+  padding: 18px 20px;
+}
+
+.care-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.care-header h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.care-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  background: var(--info-bg);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.care-column {
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(31, 95, 115, 0.08);
+  border-radius: 18px;
+  padding: 16px 18px;
+}
+
+.care-column h4 {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.care-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+}
+
+.care-list li {
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
 .footer-note {
   margin-top: 16px;
   text-align: center;
@@ -389,7 +452,8 @@ h1 {
     align-items: flex-start;
   }
 
-  .patient-grid {
+  .patient-grid,
+  .care-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -402,23 +466,27 @@ h1 {
   .title-card,
   .patient-card,
   .panel,
-  .summary-box {
+  .summary-box,
+  .care-panel {
     border-radius: 18px;
   }
 
   .title-card,
   .patient-card,
-  .panel {
+  .panel,
+  .care-panel {
     padding-left: 14px;
     padding-right: 14px;
   }
 
-  .panel-header {
+  .panel-header,
+  .care-header {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .patient-grid {
+  .patient-grid,
+  .care-grid {
     grid-template-columns: 1fr;
   }
 
