@@ -217,41 +217,21 @@ h1 {
   color: var(--primary-3);
 }
 
-.reset-btn,
-.print-btn,
-.pdf-btn {
+.reset-btn {
   border: none;
   border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary-2), var(--primary));
+  color: #041b2a;
   padding: 10px 18px;
   font-weight: 800;
   cursor: pointer;
+  box-shadow: 0 12px 18px rgba(88, 185, 233, 0.22);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.reset-btn {
-  background: linear-gradient(135deg, var(--primary-2), var(--primary));
-  color: #041b2a;
-  box-shadow: 0 12px 18px rgba(88, 185, 233, 0.22);
-}
-
-.print-btn {
-  background: linear-gradient(135deg, #1b2d3d, #284d67);
-  color: var(--text);
-  border: 1px solid rgba(134, 215, 255, 0.18);
-  box-shadow: 0 12px 20px rgba(15, 31, 42, 0.25);
-}
-
-.pdf-btn {
-  background: linear-gradient(135deg, #2d4f66, #1e3347);
-  color: var(--text);
-  border: 1px solid rgba(134, 215, 255, 0.18);
-  box-shadow: 0 12px 22px rgba(13, 31, 42, 0.3);
-}
-
-.reset-btn:hover,
-.print-btn:hover,
-.pdf-btn:hover {
+.reset-btn:hover {
   transform: translateY(-1px);
+  box-shadow: 0 14px 20px rgba(88, 185, 233, 0.28);
 }
 
 .table-wrap {
@@ -411,7 +391,7 @@ h1 {
 }
 
 .print-summary {
-  display: none;
+  display: block;
   margin-bottom: 20px;
   background: rgba(17, 30, 41, 0.52);
   border: 1px solid var(--line);
