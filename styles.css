@@ -91,7 +91,8 @@ input {
 .patient-card,
 .panel,
 .summary-box,
-.care-panel {
+.care-panel,
+.interpretation-panel {
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(31, 95, 115, 0.08);
@@ -374,6 +375,62 @@ h1 {
   background: linear-gradient(135deg, #d75c56, #b54d4d);
 }
 
+.interpretation-panel {
+  margin-top: 18px;
+  padding: 18px 20px;
+}
+
+.interpretation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.interpretation-item {
+  border: 1px solid rgba(31, 95, 115, 0.08);
+  border-radius: 18px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.interpretation-item p {
+  margin: 12px 0 0;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.level-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.level-low {
+  background: rgba(63, 169, 141, 0.14);
+  color: #0f6d55;
+}
+
+.level-moderate {
+  background: rgba(244, 185, 66, 0.2);
+  color: #865900;
+}
+
+.level-high {
+  background: rgba(242, 164, 91, 0.18);
+  color: #9c4f14;
+}
+
+.level-critical {
+  background: rgba(215, 92, 86, 0.14);
+  color: #9b2b2d;
+}
+
 .care-panel {
   margin-top: 18px;
   padding: 18px 20px;
@@ -435,6 +492,32 @@ h1 {
   line-height: 1.45;
 }
 
+.references-panel {
+  margin-top: 18px;
+  padding: 0 4px;
+}
+
+.references-panel h3 {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.reference-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.reference-list li {
+  margin-bottom: 8px;
+}
+
+.reference-list a {
+  color: var(--primary);
+}
+
 .footer-note {
   margin-top: 16px;
   text-align: center;
@@ -453,7 +536,8 @@ h1 {
   }
 
   .patient-grid,
-  .care-grid {
+  .care-grid,
+  .interpretation-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -467,14 +551,16 @@ h1 {
   .patient-card,
   .panel,
   .summary-box,
-  .care-panel {
+  .care-panel,
+  .interpretation-panel {
     border-radius: 18px;
   }
 
   .title-card,
   .patient-card,
   .panel,
-  .care-panel {
+  .care-panel,
+  .interpretation-panel {
     padding-left: 14px;
     padding-right: 14px;
   }
@@ -486,7 +572,8 @@ h1 {
   }
 
   .patient-grid,
-  .care-grid {
+  .care-grid,
+  .interpretation-grid {
     grid-template-columns: 1fr;
   }
 
@@ -505,3 +592,4 @@ h1 {
     width: 100%;
   }
 }
+
