@@ -47,7 +47,10 @@
       <main class="panel" aria-label="Valoración del paciente">
         <div class="panel-header">
           <h2>Valoración clínica</h2>
-          <button id="resetBtn" class="reset-btn" type="button">Reiniciar</button>
+          <div class="header-actions">
+            <button id="randomBtn" class="secondary-btn" type="button">Caso demo</button>
+            <button id="resetBtn" class="reset-btn" type="button">Reiniciar</button>
+          </div>
         </div>
 
         <div class="table-wrap">
@@ -64,38 +67,38 @@
             <tbody>
               <tr>
                 <th class="factor">Estado físico general</th>
-                <td><label><input type="radio" name="physical" value="4" checked /><span>Bueno</span></label></td>
-                <td><label><input type="radio" name="physical" value="3" /><span>Débil</span></label></td>
-                <td><label><input type="radio" name="physical" value="2" /><span>Malo</span></label></td>
-                <td><label><input type="radio" name="physical" value="1" /><span>Muy malo</span></label></td>
+                <td><label class="option"><input type="radio" name="physical" value="4" checked /><span>Bueno</span></label></td>
+                <td><label class="option"><input type="radio" name="physical" value="3" /><span>Débil</span></label></td>
+                <td><label class="option"><input type="radio" name="physical" value="2" /><span>Malo</span></label></td>
+                <td><label class="option"><input type="radio" name="physical" value="1" /><span>Muy malo</span></label></td>
               </tr>
               <tr>
                 <th class="factor">Estado mental</th>
-                <td><label><input type="radio" name="mental" value="4" checked /><span>Alerta</span></label></td>
-                <td><label><input type="radio" name="mental" value="3" /><span>Apático</span></label></td>
-                <td><label><input type="radio" name="mental" value="2" /><span>Confuso</span></label></td>
-                <td><label><input type="radio" name="mental" value="1" /><span>Estuporoso</span></label></td>
+                <td><label class="option"><input type="radio" name="mental" value="4" checked /><span>Alerta</span></label></td>
+                <td><label class="option"><input type="radio" name="mental" value="3" /><span>Apático</span></label></td>
+                <td><label class="option"><input type="radio" name="mental" value="2" /><span>Confuso</span></label></td>
+                <td><label class="option"><input type="radio" name="mental" value="1" /><span>Estuporoso</span></label></td>
               </tr>
               <tr>
                 <th class="factor">Actividad</th>
-                <td><label><input type="radio" name="activity" value="4" checked /><span>Camina sin ayuda</span></label></td>
-                <td><label><input type="radio" name="activity" value="3" /><span>Camina con ayuda</span></label></td>
-                <td><label><input type="radio" name="activity" value="2" /><span>En silla de ruedas</span></label></td>
-                <td><label><input type="radio" name="activity" value="1" /><span>En cama</span></label></td>
+                <td><label class="option"><input type="radio" name="activity" value="4" checked /><span>Camina sin ayuda</span></label></td>
+                <td><label class="option"><input type="radio" name="activity" value="3" /><span>Camina con ayuda</span></label></td>
+                <td><label class="option"><input type="radio" name="activity" value="2" /><span>En silla de ruedas</span></label></td>
+                <td><label class="option"><input type="radio" name="activity" value="1" /><span>En cama</span></label></td>
               </tr>
               <tr>
                 <th class="factor">Movilidad</th>
-                <td><label><input type="radio" name="mobility" value="4" checked /><span>Total</span></label></td>
-                <td><label><input type="radio" name="mobility" value="3" /><span>Limitación ligera</span></label></td>
-                <td><label><input type="radio" name="mobility" value="2" /><span>Muy limitada</span></label></td>
-                <td><label><input type="radio" name="mobility" value="1" /><span>Inmóvil</span></label></td>
+                <td><label class="option"><input type="radio" name="mobility" value="4" checked /><span>Total</span></label></td>
+                <td><label class="option"><input type="radio" name="mobility" value="3" /><span>Limitación ligera</span></label></td>
+                <td><label class="option"><input type="radio" name="mobility" value="2" /><span>Muy limitada</span></label></td>
+                <td><label class="option"><input type="radio" name="mobility" value="1" /><span>Inmóvil</span></label></td>
               </tr>
               <tr>
                 <th class="factor">Incontinencia</th>
-                <td><label><input type="radio" name="incontinence" value="4" checked /><span>Ninguna</span></label></td>
-                <td><label><input type="radio" name="incontinence" value="3" /><span>Ocasional</span></label></td>
-                <td><label><input type="radio" name="incontinence" value="2" /><span>Solo urinaria</span></label></td>
-                <td><label><input type="radio" name="incontinence" value="1" /><span>Urinaria y fecal</span></label></td>
+                <td><label class="option"><input type="radio" name="incontinence" value="4" checked /><span>Ninguna</span></label></td>
+                <td><label class="option"><input type="radio" name="incontinence" value="3" /><span>Ocasional</span></label></td>
+                <td><label class="option"><input type="radio" name="incontinence" value="2" /><span>Solo urinaria</span></label></td>
+                <td><label class="option"><input type="radio" name="incontinence" value="1" /><span>Urinaria y fecal</span></label></td>
               </tr>
             </tbody>
           </table>
@@ -117,10 +120,17 @@
           </div>
         </div>
 
+        <div class="quick-actions" role="tablist" aria-label="Niveles de riesgo">
+          <button class="risk-chip low active" type="button" data-risk="low">Bajo</button>
+          <button class="risk-chip moderate" type="button" data-risk="moderate">Moderado</button>
+          <button class="risk-chip high" type="button" data-risk="high">Alto</button>
+          <button class="risk-chip critical" type="button" data-risk="critical">Muy alto</button>
+        </div>
+
         <section class="care-panel" aria-live="polite">
           <div class="care-header">
             <h3>Cuidados de enfermería</h3>
-            <span class="care-badge">Enfoque NANDA</span>
+            <span id="riskBadge" class="care-badge">Bajo</span>
           </div>
 
           <div class="care-grid">
@@ -134,6 +144,13 @@
               <ul id="careList" class="care-list"></ul>
             </div>
           </div>
+        </section>
+
+        <section class="notes-panel">
+          <div class="notes-header">
+            <h3>Observaciones de enfermería</h3>
+          </div>
+          <textarea id="nursingNote" rows="4" placeholder="Describe hallazgos, cambios de piel, reposicionamiento, higiene y educación al paciente..."></textarea>
         </section>
       </main>
 
