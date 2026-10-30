@@ -34,6 +34,10 @@
               <input id="patientAge" type="text" placeholder="Ej. 74" />
             </div>
             <div class="field">
+              <label for="patientDob">Fecha de nacimiento</label>
+              <input id="patientDob" type="date" />
+            </div>
+            <div class="field">
               <label for="ward">Servicio</label>
               <input id="ward" type="text" placeholder="Ej. Medicina" />
             </div>
@@ -70,10 +74,25 @@
         <div class="panel-header">
           <h2>Valoración clínica</h2>
           <div class="header-actions">
+            <button id="pdfBtn" class="pdf-btn" type="button">Guardar PDF</button>
             <button id="printBtn" class="print-btn" type="button">Imprimir</button>
             <button id="resetBtn" class="reset-btn" type="button">Reiniciar</button>
           </div>
         </div>
+
+        <section class="print-summary" aria-live="polite">
+          <div class="print-summary-header">
+            <h3>Resumen de valoración</h3>
+          </div>
+          <div class="print-summary-grid">
+            <div class="print-row"><span>Paciente:</span><strong id="printPatientName">—</strong></div>
+            <div class="print-row"><span>Edad:</span><strong id="printPatientAge">—</strong></div>
+            <div class="print-row"><span>Fecha de nacimiento:</span><strong id="printPatientDob">—</strong></div>
+            <div class="print-row"><span>Servicio:</span><strong id="printWard">—</strong></div>
+            <div class="print-row"><span>Fecha:</span><strong id="printDate">—</strong></div>
+            <div class="print-row print-result-row"><span>Resultado:</span><strong id="printRiskResult">—</strong></div>
+          </div>
+        </section>
 
         <div class="table-wrap">
           <table class="norton-table">

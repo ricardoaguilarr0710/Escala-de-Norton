@@ -96,7 +96,6 @@ input {
 .patient-card,
 .panel,
 .summary-box,
-.care-panel,
 .interpretation-panel {
   background: var(--panel);
   backdrop-filter: blur(10px);
@@ -209,6 +208,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .panel-header h2 {
@@ -218,7 +218,8 @@ h1 {
 }
 
 .reset-btn,
-.print-btn {
+.print-btn,
+.pdf-btn {
   border: none;
   border-radius: 999px;
   padding: 10px 18px;
@@ -240,8 +241,16 @@ h1 {
   box-shadow: 0 12px 20px rgba(15, 31, 42, 0.25);
 }
 
+.pdf-btn {
+  background: linear-gradient(135deg, #2d4f66, #1e3347);
+  color: var(--text);
+  border: 1px solid rgba(134, 215, 255, 0.18);
+  box-shadow: 0 12px 22px rgba(13, 31, 42, 0.3);
+}
+
 .reset-btn:hover,
-.print-btn:hover {
+.print-btn:hover,
+.pdf-btn:hover {
   transform: translateY(-1px);
 }
 
@@ -401,6 +410,47 @@ h1 {
   color: #fff3f3;
 }
 
+.print-summary {
+  display: none;
+  margin-bottom: 20px;
+  background: rgba(17, 30, 41, 0.52);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.print-summary-header h3 {
+  margin: 0 0 12px;
+  color: var(--primary-3);
+  font-size: 1.1rem;
+}
+
+.print-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+}
+
+.print-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.print-row span {
+  color: var(--muted);
+}
+
+.print-result-row {
+  grid-column: 1 / -1;
+  background: rgba(134, 215, 255, 0.08);
+  border-color: rgba(134, 215, 255, 0.14);
+}
+
 .interpretation-panel {
   margin-top: 18px;
   padding: 18px 20px;
@@ -535,11 +585,11 @@ h1 {
   .header-actions {
     width: 100%;
     justify-content: flex-start;
-    flex-wrap: wrap;
   }
 
   .patient-grid,
-  .interpretation-grid {
+  .interpretation-grid,
+  .print-summary-grid {
     grid-template-columns: 1fr;
   }
 
@@ -562,12 +612,7 @@ h1 {
 @media print {
   body {
     background: #fff;
-    color: #111;
-  }
-
-  .header-actions,
-  .badge {
-    display: none !important;
+    color: #0e1720;
   }
 
   .app-shell {
@@ -575,21 +620,139 @@ h1 {
     padding: 0;
   }
 
+  .topbar,
+  .info-grid,
+  .references-panel,
+  .footer-note,
+  .header-actions,
+  .badge {
+    display: none !important;
+  }
+
   .title-card,
   .patient-card,
   .panel,
   .summary-box,
   .interpretation-panel {
-    box-shadow: none;
-    border: 1px solid #d9d9d9;
-    background: #fff;
-    color: #111;
+    background: #fff !important;
+    color: #0e1720 !important;
+    border: 1px solid #d0d7de !important;
+    box-shadow: none !important;
+    border-radius: 12px !important;
   }
 
+  .title-card,
+  .patient-card,
+  .panel,
+  .summary-box,
+  .interpretation-panel,
+  .norton-table,
+  .table-wrap,
+  .print-summary {
+    break-inside: avoid;
+  }
+
+  .title-card,
+  .patient-card,
+  .panel,
+  .summary-box,
+  .interpretation-panel {
+    padding: 14px 16px !important;
+  }
+
+  .eyebrow,
+  .subtitle,
+  .card-title,
+  .field label,
+  .panel-header h2,
+  .metric-name,
+  .risk-pill,
+  .suffix,
+  .reference-list,
+  .care-header h3,
+  .print-summary-header h3,
+  .print-row span,
+  .print-row strong,
+  .level-tag,
+  .interpretation-item p,
+  .norton-table th,
+  .norton-table td,
+  .norton-table span,
+  .metric-value,
+  .footer-note,
   .field input,
+  .patient-card input,
+  .table-wrap,
+  .print-summary {
+    color: #0e1720 !important;
+  }
+
+  .print-summary {
+    display: block !important;
+    background: #f6f8fa !important;
+    border-color: #d0d7de !important;
+  }
+
+  .print-row {
+    background: #f8fafc !important;
+    border-color: #d0d7de !important;
+  }
+
+  .print-result-row {
+    background: #eef7ff !important;
+    border-color: #bddcf3 !important;
+  }
+
+  .norton-table thead th {
+    background: #edf2f7 !important;
+    color: #0e1720 !important;
+  }
+
   .norton-table td,
   .norton-table .factor,
-  .reference-list a {
-    color: #111;
+  .norton-table th,
+  .norton-table span {
+    background: #fff !important;
+    border-color: #d0d7de !important;
+  }
+
+  .risk-pill.low {
+    background: #d9f7ed !important;
+    color: #116c4d !important;
+  }
+
+  .risk-pill.moderate {
+    background: #fff0c9 !important;
+    color: #7a4e00 !important;
+  }
+
+  .risk-pill.high {
+    background: #ffe3c6 !important;
+    color: #8b4b12 !important;
+  }
+
+  .risk-pill.critical {
+    background: #ffd2d2 !important;
+    color: #861d1d !important;
+  }
+
+  .level-low {
+    background: #dff9ee !important;
+    color: #116c4d !important;
+  }
+
+  .level-moderate {
+    background: #fff3d9 !important;
+    color: #7a4e00 !important;
+  }
+
+  .level-high {
+    background: #ffe8d4 !important;
+    color: #8b4b12 !important;
+  }
+
+  .level-critical {
+    background: #ffd8d8 !important;
+    color: #861d1d !important;
   }
 }
